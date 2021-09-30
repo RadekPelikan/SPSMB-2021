@@ -1,4 +1,4 @@
-package _09m._27d_10;
+package _09m._27d_9;
 
 // Jirkovy zápisky
 import java.util.Scanner;
