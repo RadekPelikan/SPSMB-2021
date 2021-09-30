@@ -7,7 +7,6 @@ public class Main {
     private static ArrayList<Item> items;
 
     public static void main(String[] args) {
-        String str = "qwerty1qwerty2";
 
         items = new ArrayList<Item>(
                 Arrays.asList(
