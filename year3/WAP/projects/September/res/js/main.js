@@ -14,7 +14,6 @@ const readFile = async () => {
         return await file.json();
     } catch (e) {
         console.log(e);
-        
     }
 };
 
