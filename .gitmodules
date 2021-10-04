@@ -1,3 +1,6 @@
 [submodule "year3/WAP/projects/September_1-Millionaire"]
 	path = year3/WAP/projects/September_1-Millionaire
 	url = https://github.com/RadekPelikan/September_1-Millionaire
+[submodule "year3/PRO"]
+	path = year3/PRO
+	url = https://github.com/RadekPelikan/PRO
