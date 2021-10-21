@@ -1,3 +1,6 @@
 [submodule "year3/WAP/projects/_1_September-Millionaire"]
 	path = year3/WAP/projects/_1_September-Millionaire
 	url = https://github.com/RadekPelikan/_1_September-Millionaire
+[submodule "year3/WAP/projects/_2_October-REST-API"]
+	path = year3/WAP/projects/_2_October-REST-API
+	url = https://github.com/RadekPelikan/_2_October-REST-API
