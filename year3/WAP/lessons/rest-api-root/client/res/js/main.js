@@ -1,7 +1,8 @@
 const info = document.getElementById("info");
-const postM = document.getElementById("post");
-const putM = document.getElementById("put");
-const deleteM = document.getElementById("delete");
+const postB = document.getElementById("post-button");
+const putB = document.getElementById("put-button");
+const patchB = document.getElementById("patch-button");
+const deleteB = document.getElementById("delete-button");
 
 window.onload = async () => {
     try {
@@ -15,7 +16,7 @@ window.onload = async () => {
     }
 }
 
-const postMethod = async () => {
+postB.onclick = async () => {
     try {
         const res = await fetch("http://127.0.0.1:3000/user", {
             method: "POST",
@@ -24,7 +25,7 @@ const postMethod = async () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                payload: "got it?"
+                payload: "POST"
             })
         });
         const data = await res.json();
@@ -33,4 +34,57 @@ const postMethod = async () => {
         info.innerText = error;
     }
 }
-postM.onclick = postMethod;
+patchB.onclick = async () => {
+    try {
+        const res = await fetch("http://127.0.0.1:3000/user", {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                payload: "PATCH"
+            })
+        });
+        const data = await res.json();
+        info.innerText = data.payload;
+    } catch (error) {
+        info.innerText = error;
+    }
+}
+putB.onclick = async () => {
+    try {
+        const res = await fetch("http://127.0.0.1:3000/user", {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                payload: "Bruh"
+            })
+        });
+        const data = await res.json();
+        info.innerText = data.payload;
+    } catch (error) {
+        info.innerText = error;
+    }
+}
+deleteB.onclick = async () => {
+    try {
+        const res = await fetch("http://127.0.0.1:3000/user", {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                payload: "Bruh"
+            })
+        });
+        const data = await res.json();
+        info.innerText = data.payload;
+    } catch (error) {
+        info.innerText = error;
+    }
+}

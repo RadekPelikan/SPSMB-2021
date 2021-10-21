@@ -25,11 +25,33 @@ app.post('/user', (req, res) => {
 })
 
 app.get('/user/:id', (req, res) => {
-    const { id, name, age } = req.params;
     const { payload } = req.body;
     if (!payload) return res.status(404).send({ msg: "Payload not found" });
     res.status(200).send({
-        id,
+        payload
+    })
+})
+
+app.put('/user', (req, res) => {
+    const { payload } = req.body;
+    if (!payload) return res.status(404).send({ msg: "Payload not found" });
+    res.status(200).send({
+        payload
+    })
+})
+
+app.patch('/user', (req, res) => {
+    const { payload } = req.body;
+    if (!payload) return res.status(404).send({ msg: "Payload not found" });
+    res.status(200).send({
+        payload
+    })
+})
+
+app.delete('/user', (req, res) => {
+    const { payload } = req.body;
+    if (!payload) return res.status(404).send({ msg: "Payload not found" });
+    res.status(200).send({
         payload
     })
 })
