@@ -1,51 +1,60 @@
-heslo: datum
-shutdown -P now (Korektní vypnutí systému)
-ifconfig        (Zjištění IP adresy)
-netstat -lpnt   (Zjistění portu)
-apropos         (Manuál slouží pro vyhledání souvislosti)ˇ
+# Linux (debian) commands
 
-|               (Pro přesměrování do jíného příkazu)
-`příkaz` | more (Pro vypisování po stránkách)
+## EN
 
-cat /etc/passwd     (Zjištění účtů na OS)
-passwd              (Změnění hesla přihlášeného účtu)
-passwd `uzivatel`   (Změnění heslo uzivatele, jen z pozice root)
+| Command | Description |
+|---|---|
+| shutdown -P now | Correct way to turn off machine |
+| ifconfig | get IP address of machine |
+| netstat -lpnt | get PORT |
+| apropos | Finding similar commands |
+| \| | Pipe simbol for redirecting command |
+| *command* \| more | Print by pages |
+| *command* \| less | Just better more |
+| cat /etc/passwd | Print file with users on OS |
+| passwd | Change password logged user |
+| passwd *username* | Change password of user, only by root |
+| jobs | Display stopped processes |
+| fg *number* | Bring process to foreground |
+| apt-get  | Packaging Tool |
+| --- update | Fetch information for updating packages |
+| --- upgrade | Updating backages |
 
-apt-get
-    update      (Natáhne informace pro aktualizaci balíčků)
-    upgrade     (Aktualizuje bezpečnosti balíčků)
+### apt-get packages
 
-apt-get install
-    net-tools   
-    ssh         (Balíček pro připojení vzdáleně pomocí protokolu ssh)
-    man         (Balíček pro manuál)
+| Package | Description |
+|---|---|
+| net-tools | Networking stuff |
+| ssh | Protocol SSH |
+| man | Manual, very good, very recommended |
 
-soubory
-    pwd         (Cesta v souborovým systému)
-    cd          (Změna adresáře, ve kterém se uživatel nachází)
-    ls          (vypsání souborů/adresářů ve kterém se nachzázím)
-    ls -a       (vypsání skrytých souborů/adresářů ve kterém se nachzázím)
-    touch       (Vytvoření souboru/adresáře)
-    mv          (Přejmenovat/přesunout soubor/adresář)
-    rm          (Odstranit soubor/adresář)
+### Files
 
-Klávesové zkratky:
-    ^           control (control)
-    ^l          clear
-    ^d          logout
-    ^r          Historie příkazů
-     Procesy
-        ^s      Stopnutí procesu
-        ^q      Spuštění procesu
-        ^c      Ukončení procesu
-        ^z      Stopnutí procesu, ale vrátí mě to zpátky do konzole
-
-     Kopírování do schránky
-        ^u      Od kurzoru do leva
-        ^k      Od kurzoru do prava
-        ^y      Vložení ze schránky
+| Package | Description |
+|---|---|
+| pwd | Print working directory |
+| cd | Change directory, relatively |
+| ls | List storage, print contents of directory |
+| ls -a | List storage, including hidden files |
+| touch | Create a file |
+| mkdir | Create a directory |
+| mv | Move or rename file/directory |
+| rm | Remove file/directory |
 
 
-jobs            (Zobrazení procesů)
-fg `číslo`      (Spuštění procesu)
+| Shortcut | Description |
+|---|---|
+| ^ | Ctrl (Control) |
+| ^l | Clear console |
+| ^d | Logout |
+| ^r | Command history |
+| **Process** |  |
+| ^s | Stop process |
+| ^q | Resume process |
+| ^c | Cancel process |
+| ^z | Stop process, but returns to the console |
+| **Clipboard** |  |
+| ^u | Copy from cursor to left |
+| ^k | Copy from curosr to right |
+| ^y | Paste from clipboard |
 
