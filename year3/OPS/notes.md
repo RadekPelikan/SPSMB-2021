@@ -19,6 +19,7 @@
 | apt-get  | Packaging Tool |
 | --- update | Fetch information for updating packages |
 | --- upgrade | Updating backages |
+| --- install | Install new package |
 
 ### apt-get packages
 
@@ -41,6 +42,7 @@
 | mv | Move or rename file/directory |
 | rm | Remove file/directory |
 
+### Shortcuts
 
 | Shortcut | Description |
 |---|---|
