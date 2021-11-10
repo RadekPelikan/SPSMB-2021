@@ -1,60 +1,80 @@
-http://toolkit.g6.cz
-hhtps://wintelguy.com
-https://samuraj-cz.com
+# NETWORKING (Cisco)
 
-routování - 3. vrstva - sítová - hledání cesty pro propojení sítí
+## EN
 
-router - přístup do internetu
+### Basic stuff
 
-LAN - local area network
-IPv4 - 4 miliardy adres (2^32)
-     - adresa musí být unikátní (jednoznačná)
-     - 3 skupiny (rozsahy) privátních adres: 
-						1) 10.0.0.0 /8
-						2) 172.16.0.0 /12
-				   	    3) 192.168.0.0 /16
-OKTET - část IP adresy 8 bitů
-Broadcast je doručen všem zažízením v místní síti. Posledí z daného rozsahu
+**Links**:
+- http://toolkit.g6.cz
+- https://wintelguy.com
+- https://samuraj-cz.com
 
-Routovací protokoly
-	statické - nadefinovaná cesta z bodu A do bodu B
-		- při přerušení spojení cesta zmizí
-		- využití pouze u malých sítí
-	dynamické - nejčastější
-		- reaguje na změny v topologii
-		- pokud se cesta přeruší najde se nová
-		- 2 kategorie: 
-			1)Exterior gateway Protocol
-				- BGP
-				- path vector
-				- propojuje autonomní systémy
-				- velké sítě (O2, Vodafon,...)
-			2) Interior gateway Protocol
-				- uvnitř Autonomního systému
-				- dělí se na: 
-					1) Distance vector
-						- hledá nejmenší počet hopů
-						- RIP, RIP2, RIPNG
-						- IGRP, EIGRP
-					2) Link state
-						- hledá nejlepší kvalitu (nejrychlejší) spoje
-						- IS-IS
-						- OSPF
-	defaultní - používá se na přestup do internetu
-		- samé nuly
+**Routing**
+- 3. layer OSI - network
+- Finding path to connect networks
 
-RIP protokol
-	- max 15 hopů
-	- 1 = broadcast
-	- 2 = multicast
-multicast adresa - 224.0.0.9
+**Router** - internet access  
+**LAN** - local area network  
 
-Autonomní systém
-	- rozsálhá síť pro jednu správu (mobilní operátoři), EGP
+**IPv4** 
+- 4 bilion adresses (2^32)
+- adress have to be unique
+- 3 groups of (ranges) private adresse
+	1. 10.0.0.0/8
+	2. 172.16.0.0/12
+	3. 192.168.0.0/16
+- Octet - Part of IP adress 8 bits (1 part of IPv4)
+- Broadcast is delivered to all devices in local network. The last of the given range
 
-VLSM = Variable Length Subnet Masking
-     = variabilní maska
-     - nezbytné z důvodu nedostatku adres
+**Routing protocols**
+- Static 
+	- Defined path from A to B
+	- When the connection is lost, the path disappears
+	- Use only for small networks
+- Dynamic
+	- The most common
+	- Reacts to changes in topology
+	- If the path is interrupted, a new one is found
+	- 2 categories
+		1. Exterior gateway Protocol (EGP)
+			- BGP
+			- Path vector
+			- Connects autonomous systems
+			- Big networks (O2, Vodafon, ...)
+		2. Interior gateway protocol
+			- Inside autonomous system
+			- 2 parts
+				1. Distance vector
+					- RIP, RIP2, RIPNG,
+					- IGRP, EIGRP
+					- Finds smallest number of hops
+				2. Link state
+					- OSPF
+					- IS-IS
+					- Finds the best (fastest) path
+- Default
+	- Used to connect to the internet
+	- All zeros
+
+**Autonomous system**
+- Extensive network for one administration (mobile providers), EGP
+
+**VLSM**
+- Variable Length Subnet Masking
+- Necessary due to lack of addresses
+
+### RIP
+
+Max 15 hops
+
+**Versions**
+- 1 = broadcast
+- 2 = multicast
+
+**Multicast adress** - 224.0.0.9
+
+### OSPF
+
 
 Subneting
   - počítání použitelných IP adres
