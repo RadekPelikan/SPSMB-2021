@@ -10,7 +10,7 @@
 - https://samuraj-cz.com
 
 **Routing**
-- 3. layer OSI - network
+- 3rd layer OSI - network
 - Finding path to connect networks
 
 **Router** - internet access  
