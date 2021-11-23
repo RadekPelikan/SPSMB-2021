@@ -60,3 +60,4 @@
 | ^k | Copy from curosr to right |
 | ^y | Paste from clipboard |
 
+update-alternatives --config editor
