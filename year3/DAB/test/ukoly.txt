@@ -1,0 +1,9 @@
+1. Ziskat pocet lidi z daneho regionu
+2. Ziskat nazvy praci kde vyplata je vetsi jak 10000
+3. Ziskat jmeno, prijmeni, mesto a nazev oddeleni pracovniku
+4. Ziskat 5 nejnovejsich pracovniku a 5 nejstarsich pracovniku
+5. Ziskat 5 nejlepe placenych a 5 nejhure placenych
+6. Ziskat jmeno, prijmeni a mesta pracovniku
+7. Ziskat kolik lidi pracuje v IT oddeleni se jmeny lidi
+8. Vybrat vsechny uzivatele ktery maji ve jmenu pismeno "a" a v prijmeni pismeno "i"
+9. Vybrat vsechny managerske pracovni pozice
