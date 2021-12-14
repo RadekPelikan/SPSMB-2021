@@ -60,4 +60,18 @@
 | ^k | Copy from curosr to right |
 | ^y | Paste from clipboard |
 
+### New disk
+
+dmesg | grep sd		Najít jak se jmenuje nový disk
+fdisk /dev/`disk name`	Vytvoření particion pro disk
+- n 	Nová particion
+- p		Primary
+- pak default
+mount --rw /dev/`disk name` `/mnt` `where to mount` - mount disku 
+| Command | Description |
+|---|---|
+| dmesg \| grep sd | Ctrl (Control) |
+
+
+
 update-alternatives --config editor
