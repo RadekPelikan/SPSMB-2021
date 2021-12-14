@@ -71,6 +71,8 @@ fdisk /dev/`disk name`	Vytvoření particion pro disk
 - pak default
 mount --rw /dev/`disk name` `/mnt` `where to mount` - mount disku 
 
+lsblk   display mounted disks
+
 | Command | Description |
 |---|---|
 | dmesg \| grep sd | Ctrl (Control) |
