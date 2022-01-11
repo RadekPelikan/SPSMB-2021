@@ -22,15 +22,15 @@ io.on("connection", (socket) => {
 
   socket.on("new-user-connected", (data) => {
     console.log(`${data} connected`);
-    socket.data.user = data;
+    socket.data.userName = data;
     activeUsers.add(data);
-    socket.emit("new-user-connected", [...activeUsers]);
+    socket.broadcast.emit("new-user-connected", [...activeUsers] );
   });
 
   socket.on("disconnect", () => {
-    console.log(`${socket.data.user} disconnected`);
-    activeUsers.delete(socket.data.user);
-    io.emit("user-disconnected", socket.data.user);
+    console.log(`${socket.data.userName} disconnected`);
+    activeUsers.delete(socket.data.userName);
+    io.emit("user-disconnected", socket.data.userName);
   });
 });
 
