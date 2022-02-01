@@ -19,10 +19,10 @@
 **IPv4** 
 - 4 bilion adresses (2^32)
 - adress have to be unique
-- 3 groups of (ranges) private adresse
+- 3 groups of (ranges) private adresses
 	1. 10.0.0.0/8
 	2. 172.16.0.0/12
-	3. 192.168.0.0/16
+	3. 192.168.0.0/16	
 - Octet - Part of IP adress 8 bits (1 part of IPv4)
 - Broadcast is delivered to all devices in local network. The last of the given range
 
@@ -71,9 +71,12 @@ Max 15 hops
 - 1 = broadcast
 - 2 = multicast
 
-**Multicast adress** - 224.0.0.9
+**Multicast address** - 224.0.0.9
 
 ### OSPF
+
+**Multicast address** - 224.0.0.5
+
 
 
 Subneting
@@ -88,7 +91,7 @@ Subneting
   	prefix - počet adres - použitelné adresy
 	30     - 4           - 2
 	29     - 8           - 6
-    28     - 16          - 14
+	28     - 16          - 14
 	27     - 32          - 30
 	26     - 64          - 62
 	25     - 128         - 126
@@ -131,3 +134,19 @@ Cisco router:
 			router `protokol`				Konfiguvání protokolu (rip)
 			- rip
 				network `adresa sítě`		Nastavení adresy sítě
+
+Rozdělení switchu
+- L2 switch - Linková vrstva 
+- L3 switch - Síťová vrstva (Umí i routovat)
+---
+## VLAN
+(https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)[Vlans]
+__Configure ports__
+- switchport
+	- mode access (by default)
+	- access vlan `number` [Which port to vlan]
+__Configure trunk__
+- switchport
+	- mode trunk
+	- trunk allowed vlan `number` (number could be range)
+	- trunk native vlan `number` [Where frames without tags go]
