@@ -135,17 +135,25 @@ Cisco router:
 			- rip
 				network `adresa sítě`		Nastavení adresy sítě
 
-Rozdělení switchu
+**Rozdělení switchu**
 - L2 switch - Linková vrstva 
 - L3 switch - Síťová vrstva (Umí i routovat)
 ---
 ## VLAN
-(https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)[Vlans]
-__Configure ports__
+
+[Vlans](https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)
+- \# of vlans: 4095
+- Set vlan by:
+	- port
+	- MAC address
+	- protocol (3. layer)
+	- authentication
+**Configure ports**
+- interface `port` (f0/1, g0/1 ...)
 - switchport
 	- mode access (by default)
 	- access vlan `number` [Which port to vlan]
-__Configure trunk__
+**Configure trunk**
 - switchport
 	- mode trunk
 	- trunk allowed vlan `number` (number could be range)
