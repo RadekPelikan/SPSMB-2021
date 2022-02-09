@@ -142,7 +142,8 @@ Cisco router:
 ## VLAN
 
 [Vlans](https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)
-- \# of vlans: 4095
+- \# of vlans: 2 - 4095
+- 1002, 1003, 1004, 1005 are specified
 - Set vlan by:
 	- port
 	- MAC address
@@ -150,11 +151,20 @@ Cisco router:
 	- authentication
 **Configure ports**
 - interface `port` (f0/1, g0/1 ...)
-- switchport
+- switchport\
 	- mode access (by default)
 	- access vlan `number` [Which port to vlan]
 **Configure trunk**
-- switchport
+- interface `port` (f0/1, g0/1 ...)
+- switchport\
+	- nonegotiate
 	- mode trunk
-	- trunk allowed vlan `number` (number could be range)
-	- trunk native vlan `number` [Where frames without tags go]
+	- trunk\
+		- allowed vlan `number` (number could be range)
+		- native vlan `number` [Where frames without tags go]
+**Configure VTP**
+- vtp\
+	- mode\
+		- server (by defalt)
+		- client
+	- domain `domain` (default NULL)
