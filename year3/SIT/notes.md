@@ -168,3 +168,31 @@ Cisco router:
 		- server (by defalt)
 		- client
 	- domain `domain` (default NULL)
+**Configure STP**
+- interface `port` (f0/1, g0/1 ...)
+- spanning-tree\
+	- portfast
+---
+## TELNET | SSH
+**Configure SVI**
+Set ip for a vlan on switch
+- interface vlan `number` (10, 20 ...)
+- ip address `ip` `mask` 
+**Configure Telnet**
+- line vty `number` `number` (0, 1 ...)
+	- password `text` (cisco)
+- enable secret `text` (cisco) [Hashed password]
+- enable password `text` (cisco)
+**Configure SSH**
+- line vty `number` `number` (0, 1 ...)
+	- password `text` (cisco)
+- enable secret `text` (cisco) [Hashed password]
+- enable password `text` (cisco)
+- username `text` (cisco)
+- ip ssh\
+	- time-out `number` (60)
+	- authentication-retries `number` (3)
+	- version `number` (2)
+- ip domain name `text` (spsmb.local)
+- hostname `text`
+- crypto key generate rsa
