@@ -142,8 +142,8 @@ Cisco router:
 ## VLAN
 
 [Vlans](https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)
-- \# of vlans: 2 - 4095
-- 1002, 1003, 1004, 1005 are specified
+- \# of vlans: 2 - 4094
+- 1002, 1003, 1004, 1005, 4095 are reserved
 - Set vlan by:
 	- port
 	- MAC address
@@ -174,7 +174,7 @@ Cisco router:
 	- portfast
 ---
 ## TELNET | SSH
-**Configure SVI**
+**Configure SVI** - stop cycling
 Set ip for a vlan on switch
 - interface vlan `number` (10, 20 ...)
 - ip address `ip` `mask` 
@@ -188,7 +188,7 @@ Set ip for a vlan on switch
 	- password `text` (cisco)
 - enable secret `text` (cisco) [Hashed password]
 - enable password `text` (cisco)
-- username `text` (cisco)
+- username `user` secret `pass`  (cisco, cisco)
 - ip ssh\
 	- time-out `number` (60)
 	- authentication-retries `number` (3)
@@ -196,3 +196,11 @@ Set ip for a vlan on switch
 - ip domain name `text` (spsmb.local)
 - hostname `text`
 - crypto key generate rsa
+**Disable telnet**
+- line vty `number` `number` (0, 1 ...)
+	- transport input ssh
+**Router connection to network with VLANs**
+- int `port`.`number` (g0/0, 10)
+	- encapsulation dot1Q `vlan` native (10)
+	- ip add `ip` `mask`
+- show ip interface brief
