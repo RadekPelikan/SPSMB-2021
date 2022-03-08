@@ -168,25 +168,25 @@ Cisco router:
 		- server (by defalt)
 		- client
 	- domain `domain` (default NULL)
-**Configure STP**
+**Configure STP** - stop cycling
 - interface `port` (f0/1, g0/1 ...)
 - spanning-tree\
 	- portfast
 ---
 ## TELNET | SSH
-**Configure SVI** - stop cycling
+**Configure SVI** 
 Set ip for a vlan on switch
 - interface vlan `number` (10, 20 ...)
 - ip address `ip` `mask` 
 **Configure Telnet**
 - line vty `number` `number` (0, 1 ...)
 	- password `text` (cisco)
-- enable secret `text` (cisco) [Hashed password]
+- enable secret `text` (cisco) [Encrypted password]
 - enable password `text` (cisco)
 **Configure SSH**
 - line vty `number` `number` (0, 1 ...)
 	- password `text` (cisco)
-- enable secret `text` (cisco) [Hashed password]
+- enable secret `text` (cisco) [Encrypted password]
 - enable password `text` (cisco)
 - username `user` secret `pass`  (cisco, cisco)
 - ip ssh\
@@ -201,6 +201,8 @@ Set ip for a vlan on switch
 	- transport input ssh
 **Router connection to network with VLANs**
 - int `port`.`number` (g0/0, 10)
-	- encapsulation dot1Q `vlan` native (10)
+	- encapsulation dot1Q `vlan` native (10), (native only when the vlan is native)
 	- ip add `ip` `mask`
+- int `port` (g0/0)
+	- no sh
 - show ip interface brief
