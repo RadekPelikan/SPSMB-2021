@@ -1,7 +1,6 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
-
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -13,10 +12,6 @@ const PORT = 3000;
 
 const activeUsers = new Set();
 
-app.use(express.json());
-
-app.use(express.static("public"));
-
 io.on("connection", (socket) => {
   console.log("New connection");
 
@@ -24,7 +19,11 @@ io.on("connection", (socket) => {
     console.log(`${data} connected`);
     socket.data.user = data;
     activeUsers.add(data);
-    socket.emit("new-user-connected", [...activeUsers]);
+    io.emit("new-user-connected", [...activeUsers]);
+  });
+
+  socket.on("chat", (data) => {
+    io.emit("chat", data);
   });
 
   socket.on("disconnect", () => {
@@ -34,6 +33,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`App is running on ${PORT}`);
-});
+server.listen(PORT, () => console.log(`Server is running on ${PORT}`));
