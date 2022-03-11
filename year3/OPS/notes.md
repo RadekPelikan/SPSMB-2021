@@ -80,3 +80,12 @@ lsblk   display mounted disks
 
 
 update-alternatives --config editor
+
+#### **Processes**
+ps 
+- -a
+- -au
+- -aux
+**Nice**
+- renice -n +20 -u root
+- nice

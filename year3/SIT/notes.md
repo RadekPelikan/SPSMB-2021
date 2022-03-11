@@ -19,10 +19,10 @@
 **IPv4** 
 - 4 bilion adresses (2^32)
 - adress have to be unique
-- 3 groups of (ranges) private adresse
+- 3 groups of (ranges) private adresses
 	1. 10.0.0.0/8
 	2. 172.16.0.0/12
-	3. 192.168.0.0/16
+	3. 192.168.0.0/16	
 - Octet - Part of IP adress 8 bits (1 part of IPv4)
 - Broadcast is delivered to all devices in local network. The last of the given range
 
@@ -71,9 +71,12 @@ Max 15 hops
 - 1 = broadcast
 - 2 = multicast
 
-**Multicast adress** - 224.0.0.9
+**Multicast address** - 224.0.0.9
 
 ### OSPF
+
+**Multicast address** - 224.0.0.5
+
 
 
 Subneting
@@ -88,7 +91,7 @@ Subneting
   	prefix - počet adres - použitelné adresy
 	30     - 4           - 2
 	29     - 8           - 6
-    28     - 16          - 14
+	28     - 16          - 14
 	27     - 32          - 30
 	26     - 64          - 62
 	25     - 128         - 126
@@ -131,3 +134,75 @@ Cisco router:
 			router `protokol`				Konfiguvání protokolu (rip)
 			- rip
 				network `adresa sítě`		Nastavení adresy sítě
+
+**Rozdělení switchu**
+- L2 switch - Linková vrstva 
+- L3 switch - Síťová vrstva (Umí i routovat)
+---
+## VLAN
+
+[Vlans](https://www.samuraj-cz.com/clanek/vlan-virtual-local-area-network/)
+- \# of vlans: 2 - 4094
+- 1002, 1003, 1004, 1005, 4095 are reserved
+- Set vlan by:
+	- port
+	- MAC address
+	- protocol (3. layer)
+	- authentication
+**Configure ports**
+- interface `port` (f0/1, g0/1 ...)
+- switchport\
+	- mode access (by default)
+	- access vlan `number` [Which port to vlan]
+**Configure trunk**
+- interface `port` (f0/1, g0/1 ...)
+- switchport\
+	- nonegotiate
+	- mode trunk
+	- trunk\
+		- allowed vlan `number` (number could be range)
+		- native vlan `number` [Where frames without tags go]
+**Configure VTP**
+- vtp\
+	- mode\
+		- server (by defalt)
+		- client
+	- domain `domain` (default NULL)
+**Configure STP** - stop cycling
+- interface `port` (f0/1, g0/1 ...)
+- spanning-tree\
+	- portfast
+---
+## TELNET | SSH
+**Configure SVI** 
+Set ip for a vlan on switch
+- interface vlan `number` (10, 20 ...)
+- ip address `ip` `mask` 
+**Configure Telnet**
+- line vty `number` `number` (0, 1 ...)
+	- password `text` (cisco)
+- enable secret `text` (cisco) [Encrypted password]
+- enable password `text` (cisco)
+**Configure SSH**
+- line vty `number` `number` (0, 1 ...)
+	- password `text` (cisco)
+- enable secret `text` (cisco) [Encrypted password]
+- enable password `text` (cisco)
+- username `user` secret `pass`  (cisco, cisco)
+- ip ssh\
+	- time-out `number` (60)
+	- authentication-retries `number` (3)
+	- version `number` (2)
+- ip domain name `text` (spsmb.local)
+- hostname `text`
+- crypto key generate rsa
+**Disable telnet**
+- line vty `number` `number` (0, 1 ...)
+	- transport input ssh
+**Router connection to network with VLANs**
+- int `port`.`number` (g0/0, 10)
+	- encapsulation dot1Q `vlan` native (10), (native only when the vlan is native)
+	- ip add `ip` `mask`
+- int `port` (g0/0)
+	- no sh
+- show ip interface brief
