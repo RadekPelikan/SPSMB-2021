@@ -17,19 +17,23 @@ io.on("connection", (socket) => {
 
   socket.on("new-user-connected", (data) => {
     console.log(`${data} connected`);
-    socket.data.user = data;
+    socket.data.userName = data;
     activeUsers.add(data);
+<<<<<<< HEAD
     io.emit("new-user-connected", [...activeUsers]);
   });
 
   socket.on("chat", (data) => {
     io.emit("chat", data);
+=======
+    socket.broadcast.emit("new-user-connected", [...activeUsers] );
+>>>>>>> c319fcd5b34a5717818520c585d1aeff4c6ebd51
   });
 
   socket.on("disconnect", () => {
-    console.log(`${socket.data.user} disconnected`);
-    activeUsers.delete(socket.data.user);
-    io.emit("user-disconnected", socket.data.user);
+    console.log(`${socket.data.userName} disconnected`);
+    activeUsers.delete(socket.data.userName);
+    io.emit("user-disconnected", socket.data.userName);
   });
 });
 
